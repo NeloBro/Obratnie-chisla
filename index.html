@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+    <title>Обратные числа</title>
+</head>
+<body>
+    Число:<input id="number">Модуль:<input id="modul"><br>
+    <button onclick="find()">Найти обратное число</button>
+    <p id="anser"></p>
+    <script>
+        function find() {
+            var number = document.getElementById("number"),
+                modul = document.getElementById("modul"),
+                anser = document.getElementById("anser");
+            var primer = 0;
+            var ostatok = 0;
+            for(let i=0;i<modul.value;i++) {
+                primer = number.value * i;
+                if(primer > modul.value) {
+                    ostatok = primer % modul.value;
+                }
+                if(ostatok == 1) {
+                    anser.innerHTML = "Обратное число равно: "+i+" (по модулю "+modul.value+")";
+                    break;
+                }
+                primer = 0;
+                ostatok = 0;
+            }
+            if(primer == 0) {
+                anser.innerHTML = "Обратного числа нет";
+            }
+        }
+    </script>
+</body>
+</html>
